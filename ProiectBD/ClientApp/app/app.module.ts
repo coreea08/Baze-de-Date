@@ -21,6 +21,8 @@ import { ProprietarDetailsComponent } from './components/proprietar/proprietar-d
 import { AnimalComponent } from './components/animal/animal.component';
 import { AnimalListComponent } from './components/animal/animal-list/animal-list.component';
 import { AnimalDetailsComponent } from './components/animal/animal-details/animal-details.component';
+import { MedicComponent } from './components/medic/medic.component';
+import { MedicListComponent } from './components/medic/medic-list/medic-list.component';
 
 @NgModule({
     declarations: [
@@ -34,7 +36,9 @@ import { AnimalDetailsComponent } from './components/animal/animal-details/anima
         ProprietarDetailsComponent,
         AnimalComponent,
         AnimalListComponent,
-        AnimalDetailsComponent
+        AnimalDetailsComponent,
+        MedicComponent,
+        MedicListComponent
     ],
     imports: [
         CommonModule,
@@ -51,8 +55,13 @@ import { AnimalDetailsComponent } from './components/animal/animal-details/anima
 
             { path: 'animal/:proprietarId', component: AnimalComponent },
             { path: 'animal/edit/:id', component: AnimalComponent },
-            { path: 'animal/details/:id', component: ProprietarDetailsComponent },
+            { path: 'animal/details/:id', component: AnimalDetailsComponent },
            // { path: 'animal-list/:proprietarId', component: AnimalListComponent },
+
+            { path: 'medic', component: MedicComponent },
+            { path: 'medic/:id', component: MedicComponent },
+           // { path: 'medic/details/:id', component: MedicDetailsComponent },
+            { path: 'medic-list', component: MedicListComponent },
 
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },

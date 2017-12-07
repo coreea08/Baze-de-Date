@@ -1,3 +1,118 @@
-<p>
-  animal-details works!
-</p>
+
+
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-paw"></i>
+        </div>
+        <div class="header-title">
+            <h1>Detalii Animal</h1>
+            <small></small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <!-- Form controls -->
+            <div class="col-sm-12">
+                <div class="panel panel-bd lobidrag">
+                    <div class="panel-heading">
+                        <div class="btn-group" id="buttonlist">
+                            <a class="btn btn-add " [routerLink]="['/proprietar/details/'+ animal.proprietarID]">
+                                <i class="fa fa-list"></i> Lista Animale
+                            </a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+
+                        <table class="rtable rtable--flip">
+                            <thead>
+                                <tr>
+                                    <th>Cod Microcip</th>
+                                    <th>Data Nasterii</th>
+                                    <th>Serie Carnet</th>
+                                    <th>Numar Carnet</th>
+                                    <th>Cod Pasaport</th>
+                                    <th>Nume</th>
+                                    <th>Culoare</th>
+                                    <th>Categorie</th>
+                                    <th>Rasa</th>
+                                    <th>Sex</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td *ngIf="animal.codMicrocip"> {{animal.codMicrocip}}</td>
+                                    <td *ngIf="!animal.codMicrocip"><br /> </td>
+                                    <td> {{animal.dataNasterii | date:'dd/MM/yyyy'}}</td>
+                                    <td *ngIf="animal.serieCarnet"> {{animal.serieCarnet}}</td>
+                                    <td *ngIf="!animal.serieCarnet"><br /> </td>
+                                    <td  *ngIf="animal.numarCarnet"> {{animal.numarCarnet}}</td>
+                                    <td *ngIf="!animal.numarCarnet"><br /> </td>
+                                    <td *ngIf="animal.codPasaport"> {{animal.codPasaport}}</td>
+                                    <td *ngIf="!animal.codPasaport"><br /> </td>
+                                    <td> {{animal.nume}}</td>
+                                    <td> {{animal.culoare}}</td>
+                                    <td> {{animal.categorie}}</td>
+                                    <td> {{animal.rasa}}</td>
+                                    <td> {{animal.sex}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <br />
+                        <button type="button" class="btn btn-info" [routerLink]="['/animal/edit/'+ animal.id]"><i class="glyphicon glyphicon-edit"></i> Edit</button>
+
+
+                        <br />
+                        <br />
+
+                        <!--<h2>Istoric Consultatii</h2>
+
+                        <button [routerLink]="['/animal/' + proprietar.id]" class="btn btn-info">ADD Animal</button>
+
+                        <br />
+                        <br />
+                        <div class="table-responsive">
+                            <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                <thead>
+                                    <tr class="info">
+                                        <th>Nume</th>
+                                        <th>Categorie</th>
+                                        <th>Culoare</th>
+                                        <th>Data Nasterii</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let x of animale">
+                                        <td class="borded-td">
+                                            <a [routerLink]="['/animal/details/' + x.id ]">
+                                                <div style="height:100%;width:100%">
+                                                    {{x.nume}}
+                                                </div>
+                                            </a>
+                                        </td>
+                                        <td class="borded-td">{{x.categorie}}</td>
+                                        <td class="borded-td">{{x.culoare}}</td>
+                                        <td class="borded-td">{{x.dataNasterii | date:'dd/MM/yyyy'}}</td>
+                                        <td style="text-align:center">
+                                            <button type="button" class="btn btn-info btn-xs" [routerLink]="['/animal/edit/' + x.id]"><i class="glyphicon glyphicon-edit"></i></button>
+                                            <button type="button" class="btn btn-danger btn-xs" (click)="deleteAnimal(x.id)"><span class='glyphicon glyphicon-remove '></span></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>-->
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+

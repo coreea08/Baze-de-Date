@@ -16,15 +16,15 @@ export class RetetaService {
     }
 
     createRetete(reteta: any) {
-        return this.http.post('/api/Reteta', reteta).map(res => res.json());
+        return this.http.post('/api/Reteta', reteta);
     }
 
     updateRetete(id: number, reteta: any) {
-        return this.http.put('/api/Reteta/' + id, reteta).map(res => res.json());
+        return this.http.put('/api/Reteta/' + id, reteta);
     }
 
     deleteRetete(id: number) {
-        return this.http.delete('/api/Reteta/' + id).map(res => res.json());
+        return this.http.delete('/api/Reteta/' + id);
     }
 
 }

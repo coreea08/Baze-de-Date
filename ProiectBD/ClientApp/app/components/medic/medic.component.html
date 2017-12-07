@@ -1,0 +1,64 @@
+
+
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-user-md"></i>
+        </div>
+        <div class="header-title">
+            <h1>Adauga Medic</h1>
+            <small></small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <!-- Form controls -->
+            <div class="col-sm-12">
+                <div class="panel panel-bd lobidrag">
+                    <div class="panel-heading">
+                        <div class="btn-group" id="buttonlist">
+                            <a class="btn btn-add " [routerLink]="['/medic-list']">
+                                <i class="fa fa-list"></i> Lista Medici
+                            </a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <form class="col-sm-6">
+                            <div class="form-group has-warning">
+                                <label for="nume"> Nume </label>
+                                <input type="text" id="nume" name="nume" class="form-control" placeholder="nume" [(ngModel)]="medic.nume" required maxlength="25" #nume="ngModel">
+                            </div>
+                            <div class="form-group has-warning">
+                                <label for="prenume"> Prenume </label>
+                                <input type="text" id="prenume" name="prenume" class="form-control" placeholder="prenume" [(ngModel)]="medic.prenume" required maxlength="25" #prenume="ngModel">
+                            </div>
+
+                           
+                            <div class="form-group has-warning">
+                                <label for="adresa"> Adresa </label>
+                                <input type="text" id="adresa" name="adresa" class="form-control" placeholder="adresa" [(ngModel)]="medic.adresa" required maxlength="50" #adresa="ngModel">
+                            </div>
+                            <div class="form-group has-warning">
+                                <label for="telefon"> Telefon </label>
+                                <input type="text" id="telefon" name="telefon" class="form-control" placeholder="telefon" [(ngModel)]="medic.telefon" required maxlength="10" #telefon="ngModel">
+                            </div>
+                            <div class="form-group has-warning">
+                                <label for="email"> Email </label>
+                                <input type="email" id="email" name="email" class="form-control" placeholder="email" [(ngModel)]="medic.email" required maxlength="100" #email="ngModel">
+                            </div>
+
+
+                            <button type="button" class="btn btn-md btn-success" (click)="submit()">
+                                <i class="fa fa-floppy-o"></i> Save
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>

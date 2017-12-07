@@ -16,14 +16,14 @@ export class MedicService {
     }
 
     createMedic(medic: any) {
-        return this.http.post('/api/Medic', medic).map(res => res.json());
+        return this.http.post('/api/Medic', medic);
     }
 
     updateMedic(id: number, medic: any) {
-        return this.http.put('/api/Medic/' + id, medic).map(res => res.json());
+        return this.http.put('/api/Medic/' + id, medic);
     }
 
     deleteMedic(id: number) {
-        return this.http.delete('/api/Medic/' + id).map(res => res.json());
+        return this.http.delete('/api/Medic/' + id);
     }
 }

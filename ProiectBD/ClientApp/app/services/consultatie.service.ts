@@ -16,15 +16,15 @@ export class ConsultatieService {
     }
 
     createConsultatie(consultatie: any) {
-        return this.http.post('/api/Consultatie', consultatie).map(res => res.json());
+        return this.http.post('/api/Consultatie', consultatie);
     }
 
     updateConsultatie(id: number, consultatie: any) {
-        return this.http.put('/api/Consultatie/' + id, consultatie).map(res => res.json());
+        return this.http.put('/api/Consultatie/' + id, consultatie);
     }
 
     deleteConsultatie(id: number) {
-        return this.http.delete('/api/Consultatie/' + id).map(res => res.json());
+        return this.http.delete('/api/Consultatie/' + id);
     }
 
 }

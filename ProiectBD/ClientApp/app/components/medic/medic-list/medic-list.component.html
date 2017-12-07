@@ -1,0 +1,69 @@
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-user-md"></i>
+        </div>
+        <div class="header-title">
+            <h1>Medici Cabinet Veterinar</h1>
+            <small></small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-bd lobidrag">
+                    <!--<div class="panel-heading">
+                        
+                    </div>-->
+                    <div class="panel-body">
+                        <div class="buttonexport" id="buttonlist">
+                            <a class="btn btn-add" [routerLink]="['/medic']">
+                                <i class="fa fa-plus"></i> Adauga Medic
+                            </a>
+                        </div>
+
+
+                        <div class="table-responsive">
+                            <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                <thead>
+                                    <tr class="info">
+                                        <th>Nume</th>
+                                        <th>Prenume</th>
+                                        <th>Telefon</th>
+                                        <th>Email</th>
+                                        <th>Adresa</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let x of medici">
+                                        <td class="borded-td">
+                                            <a [routerLink]="['/medic/details/' + x.id ]">
+                                                <div style="height:100%;width:100%">
+                                                    {{x.nume}}
+                                                </div>
+                                            </a>
+                                        </td>
+                                        <td class="borded-td">{{x.prenume}}</td>
+                                        <td class="borded-td">{{x.telefon}}</td>
+                                        <td class="borded-td">{{x.email}}</td>
+                                        <td class="borded-td">{{x.adresa}}</td>
+                                        <td style="text-align:center">
+                                            <button type="button" class="btn btn-add btn-sm" [routerLink]="['/medic/'+ x.id]"><i class="glyphicon glyphicon-edit"></i></button>
+                                            <button type="button" class="btn btn-danger btn-sm" (click)="delete(x.id)"><span class='glyphicon glyphicon-remove '></span></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+    </section>
+    <!-- /.content -->
+</div>

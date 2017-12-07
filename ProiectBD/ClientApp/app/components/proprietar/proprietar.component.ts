@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { ProprietarService } from "../../services/proprietar.service";
 
 @Component({
-  selector: 'app-proprietar',
+  selector: 'proprietar',
   templateUrl: './proprietar.component.html',
   styleUrls: ['./proprietar.component.css']
 })

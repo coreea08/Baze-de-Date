@@ -41,7 +41,7 @@
 
 
          <header class="main-header">
-            <a href="index.html" class="logo">
+            <a [routerLink]="['/home']" class="logo">
                <!-- Logo -->
                <span class="logo-mini">
                <img src="/assets/dist/img/mini-logo.png" alt="">
@@ -66,8 +66,16 @@
         <!-- sidebar menu -->
         <ul class="sidebar-menu">
             <li class="active">
-                <a href="index.html">
-                    <i class="fa fa-user-md"></i><span>Dashboard</span>
+                <a [routerLink]="['/home']">
+                    <i class="fa fa-home"></i><span>Dashboard</span>
+                    <span class="pull-right-container">
+                    </span>
+                </a>
+            </li>
+
+            <li class="active" [routerLinkActive]="['link-active']">
+                <a [routerLink]="['/medic-list']">
+                    <i class="fa fa-user-md"></i><span>Medici</span>
                     <span class="pull-right-container">
                     </span>
                 </a>
