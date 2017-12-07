@@ -1,0 +1,86 @@
+<br />
+
+
+<div class="container-fluid">
+    <h2>Detalii Proprietar</h2>
+
+    <table class="rtable rtable--flip">
+        <thead>
+            <tr>
+                <th>Nume</th>
+                <th>Prenume</th>
+                <th>CNP</th>
+                <th>Serie CI</th>
+                <th>Numar CI</th>
+                <th>Judet</th>
+                <th>Localitate</th>
+                <th>Adresa</th>
+                <th>Telefon</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td> {{proprietar.nume}}</td>
+                <td> {{proprietar.prenume}}</td>
+                <td> {{proprietar.cnp}}</td>
+                <td> {{proprietar.serieCI}}</td>
+                <td> {{proprietar.numarCI}}</td>
+                <td> {{proprietar.judet}}</td>
+                <td> {{proprietar.localitate}}</td>
+                <td *ngIf="proprietar.adresa"> {{proprietar.adresa}}</td>
+                <td *ngIf="!proprietar.adresa"><br /> </td>
+                <td> {{proprietar.telefon}}</td>
+                <td *ngIf="proprietar.email"> {{proprietar.email}}</td>
+                <td *ngIf="!proprietar.email"><br /> </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br />
+    <button type="button" class="btn btn-info" [routerLink]="['/proprietar/'+ proprietar.id]"><i class="glyphicon glyphicon-edit"></i> Edit</button>
+    <button type="button" class="btn btn-primary" [routerLink]="['/animal-list/'+ proprietar.id]"><i class="glyphicon glyphicon-list"></i> Animale</button>
+    
+
+    <br />
+    <br />
+
+    <h2>Animale</h2>
+
+        <button [routerLink]="['/animal/' + proprietar.id]" class="btn btn-info">ADD Animal</button>
+
+        <br />
+        <br />
+        <div class="table-responsive">
+            <table id="dataTableExample1" class="table full-color-table full-success-table m-t-30 table-hover contact-list footable-loaded footable">
+                <thead>
+                    <tr class="info">
+                        <th>Nume</th>
+                        <th>Categorie</th>
+                        <th>Culoare</th>
+                        <th>Data Nasterii</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let x of animale">
+                        <td class="borded-td">
+                            <a [routerLink]="['/animal/details/' + x.id ]">
+                                <div style="height:100%;width:100%">
+                                    {{x.nume}}
+                                </div>
+                            </a>
+                        </td>
+                        <td class="borded-td">{{x.categorie}}</td>
+                        <td class="borded-td">{{x.culoare}}</td>
+                        <td class="borded-td">{{x.dataNasterii | date:'dd/MM/yyyy'}}</td>
+                        <td style="text-align:center">
+                            <button type="button" class="btn btn-info btn-xs" [routerLink]="['/animal/edit/' + x.id]"><i class="glyphicon glyphicon-edit"></i></button>
+                            <button type="button" class="btn btn-danger btn-xs" (click)="deleteAnimal(x.id)"><span class='glyphicon glyphicon-remove '></span></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+</div>

@@ -1,0 +1,113 @@
+
+
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-users"></i>
+        </div>
+        <div class="header-title">
+            <h1>Adauga Proprietar</h1>
+            <small></small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <!-- Form controls -->
+            <div class="col-sm-12">
+                <div class="panel panel-bd lobidrag">
+                    <div class="panel-heading">
+                        <div class="btn-group" id="buttonlist">
+                            <a class="btn btn-add " [routerLink]="['/proprietari-list']">
+                                <i class="fa fa-list"></i> Lista proprietari
+                            </a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <form class="col-sm-6">
+                            <div class="form-group has-warning">
+                                <label for="nume"> Nume </label>
+                                <input type="text" id="nume" name="nume" class="form-control" placeholder="nume" [(ngModel)]="proprietar.nume" required maxlength="25" #nume="ngModel">
+                            </div>
+                            <div class="form-group has-warning">
+                                <label for="prenume"> Prenume </label>
+                                <input type="text" id="prenume" name="prenume" class="form-control" placeholder="prenume" [(ngModel)]="proprietar.prenume" required maxlength="25" #prenume="ngModel">
+                            </div>
+
+                            <div class="form-group has-warning">
+                                <label for="cnp"> CNP </label>
+                                <input type="text" id="cnp" name="cnp" class="form-control" placeholder="cnp" [(ngModel)]="proprietar.cnp" required maxlength="13" #cnp="ngModel">
+                            </div>
+                            <div class="form-group has-warning">
+                                <label for="serie"> Serie CI </label>
+                                <input type="text" id="serie" name="serie" class="form-control" placeholder="serie" [(ngModel)]="proprietar.serieCI" required maxlength="20" #serie="ngModel">
+                            </div>
+                            <div class="form-group has-warning">
+                                <label for="numar"> Numar CI </label>
+                                <input type="text" id="numar" name="numar" class="form-control" placeholder="numar" [(ngModel)]="proprietar.numarCI" required maxlength="20" #numar="ngModel">
+                            </div>
+
+
+                            <div class="form-group has-warning">
+                                <label for="judet"> Judet </label>
+                                <input type="text" id="judet" name="judet" class="form-control" placeholder="Judet" [(ngModel)]="proprietar.judet" required maxlength="25" #judet="ngModel">
+                            </div>
+
+                            <div class="form-group has-warning">
+                                <label for="localitate"> Localitate </label>
+                                <input type="text" id="localitate" name="localitate" class="form-control" placeholder="Localitate" [(ngModel)]="proprietar.localitate" required maxlength="50" #localitate="ngModel">
+                            </div>
+
+                            <div class="form-group has-warning">
+                                <label for="adresa"> Adresa </label>
+                                <input type="text" id="adresa" name="adresa" class="form-control" placeholder="adresa" [(ngModel)]="proprietar.adresa" required maxlength="50" #adresa="ngModel">
+                            </div>
+                            <div class="form-group has-warning">
+                                <label for="telefon"> Telefon </label>
+                                <input type="text" id="telefon" name="telefon" class="form-control" placeholder="telefon" [(ngModel)]="proprietar.telefon" required maxlength="10" #telefon="ngModel">
+                            </div>
+                            <div class="form-group has-warning">
+                                <label for="email"> Email </label>
+                                <input type="email" id="email" name="email" class="form-control" placeholder="email" [(ngModel)]="proprietar.email" required maxlength="100" #email="ngModel">
+                            </div>
+
+
+
+
+
+                            <!--<div class="form-group">
+                                <label>Date of Birth</label>
+                                <input id='minMaxExample' type="text" class="form-control" placeholder="Enter Date...">
+                            </div>-->
+
+                            <!--<div class="form-group">
+                                <label>Customer type</label>
+                                <select class="form-control">
+                                    <option>vendor</option>
+                                    <option>vip</option>
+                                    <option>regular</option>
+                                </select>
+                            </div>-->
+                            <!--<div class="form-group">
+                                <label>Sex</label><br>
+                                <label class="radio-inline"><input name="sex" value="1" checked="checked" type="radio">Male</label>
+                                <label class="radio-inline"><input name="sex" value="0" type="radio">Female</label>
+                            </div>-->
+ 
+                            <!--<div class="reset-button">
+                                <a href="#" class="btn btn-warning">Reset</a>
+                                <a href="#" class="btn btn-success">Save</a>
+                            </div>-->
+                            <button type="button" class="btn btn-md btn-success" (click)="submit()">
+                                <i class="fa fa-floppy-o"></i> Save
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>

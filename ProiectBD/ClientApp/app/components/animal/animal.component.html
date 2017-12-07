@@ -1,0 +1,71 @@
+
+<br />
+<br />
+<div class="container-fluid">
+    <form>
+        <div class="form-group has-warning">
+            <label for="codMicrocip"> Cod Microcip </label>
+            <input type="text" id="codMicrocip" name="codMicrocip" class="form-control"  [(ngModel)]="animal.codMicrocip" required maxlength="25"  #codMicrocip="ngModel">
+        </div>
+        <div class="form-group has-warning">
+            <label for="data"> Data Nasterii </label>
+            <input type="date" id="data" name="data" class="form-control"  [(ngModel)]="animal.dataNasterii" required maxlength="25"  #data="ngModel">
+        </div>
+
+        <div class="form-group has-warning">
+            <label for="serie"> Serie Carnet </label>
+            <input type="text" id="serie" name="serie" class="form-control"  [(ngModel)]="animal.serieCarnet" required maxlength="25"  #serie="ngModel">
+        </div>
+
+        <div class="form-group has-warning">
+            <label for="numar"> Numar Carnet </label>
+            <input type="text" id="numar" name="numar" class="form-control" [(ngModel)]="animal.numarCarnet" required maxlength="25" #numar="ngModel">
+        </div>
+
+        <div class="form-group has-warning">
+            <label for="codPasaport"> Cod Pasaport </label>
+            <input type="text" id="codPasaport" name="codPasaport" class="form-control" [(ngModel)]="animal.codPasaport" required maxlength="25" #codPasaport="ngModel">
+        </div>
+
+        <div class="form-group has-warning">
+            <label for="nume"> Nume </label>
+            <input type="text" id="nume" name="nume" class="form-control" [(ngModel)]="animal.nume" required maxlength="25" #nume="ngModel">
+        </div>
+
+
+        <div class="form-group has-warning">
+            <label for="culoare"> Culoare </label>
+            <input type="text" id="culoare" name="culoare" class="form-control" [(ngModel)]="animal.culoare" required maxlength="25"  #culoare="ngModel">
+        </div>
+
+        <div class="form-group has-warning">
+            <label for="categorie"> Categorie </label>
+            <input type="text" id="categorie" name="categorie" class="form-control" [(ngModel)]="animal.categorie" required maxlength="50" #categorie="ngModel">
+        </div>
+
+        <div *ngIf="animal.categorie=='Caine'" class="form-group has-warning">
+            <label for="rasa"> Rasa </label>
+            <input type="text" id="rasa" name="rasa" class="form-control" [(ngModel)]="animal.rasa" required maxlength="50"  #rasa="ngModel">
+        </div>
+
+        <div class="form-check">
+            <label class="form-check-label" for="sex">
+                <input type="radio" id="sex" name="sex" class="form-check-input" [(ngModel)]="animal.sex" value="M">
+                M
+            </label>
+            <label class="form-check-label" for="sex">
+                <input type="radio" id="sex1" name="sex1" class="form-check-input" [(ngModel)]="animal.sex" value="F">
+                F
+            </label>
+        </div>
+
+
+        <button type="button" class="btn btn-md btn-success animated flipInX flipInY lightSpeedIn slideInUp" (click)="submit()">
+            <i class="fa fa-floppy-o"></i> Save
+        </button>
+    </form>
+
+    <br />
+    <br />
+</div>
+

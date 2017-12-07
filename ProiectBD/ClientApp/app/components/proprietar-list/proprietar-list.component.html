@@ -1,0 +1,118 @@
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-users"></i>
+        </div>
+        <div class="header-title">
+            <h1>Proprietari Animale</h1>
+            <small>Lista Proprietari</small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-bd lobidrag">
+                    <div class="panel-heading">
+                        <div class="btn-group" id="buttonexport">
+                            <a href="#">
+                                <h4>Adaugare Proprietar</h4>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                            <div class="buttonexport" id="buttonlist">
+                                <a class="btn btn-add" [routerLink]="['/proprietar']">
+                                    <i class="fa fa-plus"></i> Adauga Proprietar
+                                </a>
+                            </div>
+                            
+
+                        <div class="table-responsive">
+                            <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                <thead>
+                                    <tr class="info">
+                                        <th>Nume</th>
+                                        <th>Prenume</th>
+                                        <th>CNP</th>
+                                        <!--<th>SerieCI</th>
+                                        <th>NumarCI</th>
+                                        <th>Judet</th>
+                                        <th>Localitate</th>
+                                        <th>Adresa</th>-->
+                                        <th>Telefon</th>
+                                        <th>Email</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let x of proprietari">
+                                        <td class="borded-td">
+                                            <a [routerLink]="['/proprietar/details/' + x.id ]">
+                                                <div style="height:100%;width:100%">
+                                                    {{x.nume}}
+                                                </div>
+                                            </a>
+                                        </td>
+                                        <td class="borded-td">{{x.prenume}}</td>
+                                        <td class="borded-td">{{x.cnp}}</td>
+                                        <!--<td class="borded-td">{{x.serieCI}}</td>
+                                        <td class="borded-td">{{x.numarCI}}</td>
+                                        <td class="borded-td">{{x.judet}}</td>
+                                        <td class="borded-td">{{x.localitate}}</td>
+                                        <td class="borded-td">{{x.adresa}}</td>-->
+                                        <td class="borded-td">{{x.telefon}}</td>
+                                        <td class="borded-td">{{x.email}}</td>
+                                        <td style="text-align:center">
+                                            <button type="button" class="btn btn-add btn-sm" [routerLink]="['/proprietar/'+ x.id]"><i class="glyphicon glyphicon-edit"></i></button>
+                                            <button type="button" class="btn btn-danger btn-sm" (click)="delete(x.id)"><span class='glyphicon glyphicon-remove '></span></button>
+                                            <!--<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#customer2"><i class="fa fa-trash-o"></i> </button>-->
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+        <!-- Customer Modal2 -->
+        <div class="modal fade" id="customer2" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header modal-header-primary">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h3><i class="fa fa-user m-r-5"></i> Delete Customer</h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form class="form-horizontal">
+                                    <fieldset>
+                                        <div class="col-md-12 form-group user-form-group">
+                                            <label class="control-label">Delete Customer</label>
+                                            <div class="pull-right">
+                                                <button type="button" class="btn btn-danger btn-sm">NO</button>
+                                                <button type="submit" class="btn btn-add btn-sm">YES</button>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+    </section>
+    <!-- /.content -->
+</div>

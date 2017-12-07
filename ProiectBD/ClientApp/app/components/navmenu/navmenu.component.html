@@ -1,0 +1,88 @@
+<!--<br />
+<br />
+<div class='main-nav'>
+    <div class='navbar navbar-inverse'>
+        <div class='navbar-header'>
+            <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>
+                <span class='sr-only'>Toggle navigation</span>
+                <span class='icon-bar'></span>
+                <span class='icon-bar'></span>
+                <span class='icon-bar'></span>
+            </button>
+            <a class='navbar-brand' [routerLink]="['/home']">ProiectBD</a>
+        </div>
+        <div class='clearfix'></div>
+        <div class='navbar-collapse collapse'>
+            <ul class='nav navbar-nav'>
+                <li [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/home']">
+                        <span class='glyphicon glyphicon-home'></span> Home
+                    </a>
+                </li>
+                <li [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/proprietari-list']">
+                        <span class='glyphicon glyphicon-user'></span> Proprietari
+                    </a>
+                </li>
+                <li [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/counter']">
+                        <span class='glyphicon glyphicon-education'></span> Counter
+                    </a>
+                </li>
+                <li [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/fetch-data']">
+                        <span class='glyphicon glyphicon-th-list'></span> Fetch data
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>-->
+
+
+         <header class="main-header">
+            <a href="index.html" class="logo">
+               <!-- Logo -->
+               <span class="logo-mini">
+               <img src="/assets/dist/img/mini-logo.png" alt="">
+               </span>
+               <span class="logo-lg">
+               <img src="/assets/dist/img/logo.png" alt="">
+               </span>
+            </a>
+            <!-- Header Navbar -->
+            <nav class="navbar navbar-static-top">
+               <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                  <!-- Sidebar toggle button-->
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="pe-7s-angle-left-circle"></span>
+               </a>
+            </nav>
+        </header>
+
+<aside class="main-sidebar">
+    <!-- sidebar -->
+    <div class="sidebar">
+        <!-- sidebar menu -->
+        <ul class="sidebar-menu">
+            <li class="active">
+                <a href="index.html">
+                    <i class="fa fa-user-md"></i><span>Dashboard</span>
+                    <span class="pull-right-container">
+                    </span>
+                </a>
+            </li>
+
+            <li class="active" [routerLinkActive]="['link-active']">
+                <a [routerLink]="['/proprietari-list']">
+                    <i class="fa fa-user-circle-o"></i><span>Proprietari</span> 
+                    <span class="pull-right-container">
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- /.sidebar -->
+</aside>
+
+

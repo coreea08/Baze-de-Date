@@ -1,0 +1,41 @@
+<br />
+<br />
+
+
+<div class="container-fluid">
+    <button [routerLink]="['/animal/' + proprietarID]" class="btn btn-info">ADD Animal</button>
+
+    <br />
+    <br />
+    <div class="table-responsive">
+        <table id="dataTableExample1" class="table full-color-table full-success-table m-t-30 table-hover contact-list footable-loaded footable">
+            <thead>
+                <tr class="info">
+                    <th>Nume</th>
+                    <th>Categorie</th>
+                    <th>Culoare</th>
+                    <th>Data Nasterii</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let x of animale">
+                    <td class="borded-td">
+                        <a [routerLink]="['/animal/details/' + x.id ]">
+                            <div style="height:100%;width:100%">
+                                {{x.nume}}
+                            </div>
+                        </a>
+                    </td>
+                    <td class="borded-td">{{x.categorie}}</td>
+                    <td class="borded-td">{{x.culoare}}</td>
+                    <td class="borded-td">{{x.dataNasterii | date:'dd/MM/yyyy'}}</td>
+                    <td style="text-align:center">
+                        <button type="button" class="btn btn-info btn-xs" [routerLink]="['/animal/edit/' + x.id]"><i class="glyphicon glyphicon-edit"></i></button>
+                        <button type="button" class="btn btn-danger btn-xs" (click)="delete(x.id)"><span class='glyphicon glyphicon-remove '></span></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
