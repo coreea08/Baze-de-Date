@@ -11,6 +11,22 @@ export class ConsultatieService {
         return this.http.get('/api/Consultatie/' + id).map(res => res.json());
     }
 
+    getConsultatiiMedic(medicId: number) {
+        return this.http.get('/api/ConsultatieMedic/' + medicId).map(res => res.json());
+    }
+
+    getConsultatiiVechiMedic(medicId: number) {
+        return this.http.get('/api/ConsultatieMedicVeche/' + medicId).map(res => res.json());
+    }
+
+    getConsultatiiNoiMedic(medicId: number) {
+        return this.http.get('/api/ConsultatieMedicNoua/' + medicId).map(res => res.json());
+    }
+
+    getNumeAnimaleWithCNPProprietar(cnp: string) {
+        return this.http.get('/api/numeAnimal/' + cnp).map(res => res.json());
+    }
+
     getConsultatii() {
         return this.http.get('/api/Consultatie').map(res => res.json());
     }

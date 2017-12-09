@@ -1,0 +1,86 @@
+
+
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-stethoscope"></i>
+        </div>
+        <div class="header-title">
+            <h1>Adauga Consultatie</h1>
+            <small></small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <!-- Form controls -->
+            <div class="col-sm-12">
+                <div class="panel panel-bd lobidrag">
+                    <div class="panel-heading">
+                        <div class="btn-group" id="buttonlist">
+                            <a class="btn btn-add " [routerLink]="['/medic/details/' + consultatie.medicID]">
+                                <i class="fa fa-list"></i> Lista Consultatii
+                            </a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <form class="col-sm-6">
+
+                            <div class="form-group has-warning " *ngIf="!consultatie.id">
+
+                                <label for="cnp"> CNP Proprietar </label>
+                                <input id="cnp" type="text" class="form-control" [(ngModel)]="query.cnp" name="cnp" (keyup)="filterCNP()">
+
+                                <div class="suggestions" *ngIf="filteredListCNP.length > 0">
+                                    <ul *ngFor="let item of filteredListCNP">
+                                        <li>
+                                            <a (click)="selectCNP(item)">{{item}}</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="form-group has-warning " *ngIf="!consultatie.id">
+
+                                <label for="animal"> Animal </label>
+                                <input id="animal" type="text" class="form-control" [(ngModel)]="query.nume" name="animal" (keyup)="filter()">
+
+                                <div class="suggestions" *ngIf="filteredList.length > 0">
+                                    <ul *ngFor="let item of filteredList">
+                                        <li>
+                                            <a (click)="select(item)">{{item}}</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="form-group has-warning">
+                                <label for="data"> Data </label>
+                                <input type="date" id="data" name="data" class="form-control" [(ngModel)]="consultatie.data" required #data="ngModel">
+                            </div>
+
+                            <div class="form-group has-warning">
+                                <label for="descriere"> Descriere </label>
+                                <textarea rows="5" id="descriere" name="descriere" class="form-control" [(ngModel)]="consultatie.descriere" required maxlength="500" #descriere="ngModel"></textarea>
+                            </div>
+
+
+                            <div class="form-group has-warning">
+                                <label for="observatii"> Observatii </label>
+                                <textarea rows="5" id="observatii" name="observatii" class="form-control" [(ngModel)]="consultatie.observatii"  maxlength="500" #observatii="ngModel"></textarea>
+                            </div>
+
+
+                            <button type="button" class="btn btn-md btn-success" (click)="submit()">
+                                <i class="fa fa-floppy-o"></i> Save
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>

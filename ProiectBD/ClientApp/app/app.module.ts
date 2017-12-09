@@ -23,6 +23,8 @@ import { AnimalListComponent } from './components/animal/animal-list/animal-list
 import { AnimalDetailsComponent } from './components/animal/animal-details/animal-details.component';
 import { MedicComponent } from './components/medic/medic.component';
 import { MedicListComponent } from './components/medic/medic-list/medic-list.component';
+import { MedicDetailsComponent } from './components/medic/medic-details/medic-details.component';
+import { ConsultatieComponent } from './components/consultatie/consultatie.component';
 
 @NgModule({
     declarations: [
@@ -38,7 +40,9 @@ import { MedicListComponent } from './components/medic/medic-list/medic-list.com
         AnimalListComponent,
         AnimalDetailsComponent,
         MedicComponent,
-        MedicListComponent
+        MedicListComponent,
+        MedicDetailsComponent,
+        ConsultatieComponent
     ],
     imports: [
         CommonModule,
@@ -60,8 +64,11 @@ import { MedicListComponent } from './components/medic/medic-list/medic-list.com
 
             { path: 'medic', component: MedicComponent },
             { path: 'medic/:id', component: MedicComponent },
-           // { path: 'medic/details/:id', component: MedicDetailsComponent },
+            { path: 'medic/details/:id', component: MedicDetailsComponent },
             { path: 'medic-list', component: MedicListComponent },
+
+            { path: 'consultatie/:medicID', component: ConsultatieComponent },
+            { path: 'consultatie/edit/:id', component: ConsultatieComponent },
 
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },

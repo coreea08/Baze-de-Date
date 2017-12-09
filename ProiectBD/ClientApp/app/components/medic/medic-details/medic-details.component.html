@@ -1,0 +1,124 @@
+
+
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-stethoscope"></i>
+        </div>
+        <div class="header-title">
+            <h1>Lista Consultatii</h1>
+            <small></small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <!-- Form controls -->
+            <div class="col-sm-12">
+                <div class="panel panel-bd lobidrag">
+                    <div class="panel-heading">
+                        <div class="btn-group" id="buttonlist">
+                            <a class="btn btn-add " [routerLink]="['/medic-list']">
+                                <i class="fa fa-list"></i> Lista medici
+                            </a>
+                        </div>
+                        <div class="btn-group" id="buttonlist">
+                            <button [routerLink]="['/consultatie/' + medic.id]" class="btn btn-add"><i class="fa fa-plus"></i> ADD Consultatie</button>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+
+
+                        <!--<table class="rtable rtable--flip">
+                            <thead>
+                                <tr>
+                                    <th>Nume</th>
+                                    <th>Prenume</th>
+                                    <th>CNP</th>
+                                    <th>Telefon</th>
+                                    <th>Email</th>
+                                    <th>Adresa</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td> {{medic.nume}}</td>
+                                    <td> {{medic.prenume}}</td>
+                                    <td> {{medic.telefon}}</td>
+                                    <td *ngIf="medic.email"> {{medic.email}}</td>
+                                    <td *ngIf="!medic.email"><br /> </td>
+                                    <td *ngIf="medic.adresa"> {{medic.adresa}}</td>
+                                    <td *ngIf="!medic.adresa"><br /> </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <br />
+                        <button type="button" class="btn btn-info" [routerLink]="['/medic/'+ medic.id]"><i class="glyphicon glyphicon-edit"></i> Edit</button>-->
+                        <h2 style="margin-top: 2px">Consultatii urmatoare</h2>
+
+                        <div class="table-responsive">
+                            <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                <thead>
+                                    <tr class="info">
+                                        <th>Descriere</th>
+                                        <th>Data</th>
+                                        <th>Observatii</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let x of consultatiiNoi">
+                                        <td class="borded-td">{{x.descriere}}</td>
+                                        <td class="borded-td">{{x.data | date:'dd/MM/yyyy'}}</td>
+                                        <td class="borded-td">{{x.observatii}}</td>
+                                        <td style="text-align:center">
+                                            <button type="button" class="btn btn-info btn-xs" [routerLink]="['/consultatie/edit/' + x.id]"><i class="glyphicon glyphicon-edit"></i></button>
+                                            <button type="button" class="btn btn-danger btn-xs" (click)="deleteConsultatie(x.id)"><span class='glyphicon glyphicon-remove '></span></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                    </div>
+
+                    <div class="panel-body">
+
+                        <h2 style="margin-top:2px">Istoric Consultatii efectuate</h2>
+
+                        <div class="table-responsive">
+                            <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                <thead>
+                                    <tr class="info">
+                                        <th>Descriere</th>
+                                        <th>Data</th>
+                                        <th>Observatii</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let x of consultatiiVechi">
+                                        <td class="borded-td">{{x.descriere}}</td>
+                                        <td class="borded-td">{{x.data | date:'dd/MM/yyyy'}}</td>
+                                        <td class="borded-td">{{x.observatii}}</td>
+                                        <td style="text-align:center">
+                                            <button type="button" class="btn btn-info btn-xs" [routerLink]="['/consultatie/' + x.id]"><i class="glyphicon glyphicon-edit"></i></button>
+                                            <button type="button" class="btn btn-danger btn-xs" (click)="deleteConsultatie(x.id)"><span class='glyphicon glyphicon-remove '></span></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>

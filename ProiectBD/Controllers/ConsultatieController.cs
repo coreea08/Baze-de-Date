@@ -36,6 +36,105 @@ namespace ProiectBD.Controllers
 
         }
 
+        [HttpGet("/api/ConsultatieMedic/{medicId}")]
+        public List<Consultatie> GetConsultatiiMedic(int medicId)
+        {
+            this.conn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Consultatii WHERE MedicID = @medicId", conn);
+            cmd.Parameters.AddWithValue("@medicId", medicId);
+
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+
+                List<Consultatie> consultatii = new List<Consultatie>();
+
+                while (reader.Read())
+                {
+                    Consultatie p = new Consultatie(reader, conn);
+                    consultatii.Add(p);
+                }
+
+                return consultatii;
+            }
+
+        }
+
+        [HttpGet("/api/ConsultatieMedicNoua/{medicId}")]
+        public List<Consultatie> GetConsultatiiNoiMedic(int medicId)
+        {
+            this.conn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Consultatii WHERE MedicID = @medicId AND Data > @data", conn);
+            cmd.Parameters.AddWithValue("@medicId", medicId);
+            cmd.Parameters.AddWithValue("@data", DateTime.Now);
+
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+
+                List<Consultatie> consultatii = new List<Consultatie>();
+
+                while (reader.Read())
+                {
+                    Consultatie p = new Consultatie(reader, conn);
+                    consultatii.Add(p);
+                }
+
+                return consultatii;
+            }
+
+        }
+
+        [HttpGet("/api/ConsultatieMedicVeche/{medicId}")]
+        public List<Consultatie> GetConsultatiiVechiMedic(int medicId)
+        {
+            this.conn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Consultatii WHERE MedicID = @medicId AND Data < @data", conn);
+            cmd.Parameters.AddWithValue("@medicId", medicId);
+            cmd.Parameters.AddWithValue("@data", DateTime.Now);
+
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+
+                List<Consultatie> consultatii = new List<Consultatie>();
+
+                while (reader.Read())
+                {
+                    Consultatie p = new Consultatie(reader, conn);
+                    consultatii.Add(p);
+                }
+
+                return consultatii;
+            }
+
+        }
+
+        [HttpGet("/api/numeAnimal/{cnp}")]
+        public List<ClasaAuxiliara> GetNumeAnimaleWithCNPProprietar(string cnp)
+        {
+            this.conn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT ID, Nume FROM Animale WHERE ProprietarID = (SELECT ID FROM Proprietari WHERE CNP =  @cnp)", conn);
+            cmd.Parameters.AddWithValue("@cnp", cnp);
+
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+
+                var consultatii = new List<ClasaAuxiliara>();
+
+                while (reader.Read())
+                {
+
+                    var p = new ClasaAuxiliara
+                    {
+                        ID = reader.GetInt32(0),
+                        Nume = reader.GetString(1)
+                    };
+                    consultatii.Add(p);
+                }
+
+                return consultatii;
+            }
+
+        }
+
 
         [HttpGet("/api/Consultatie")]
         public List<Consultatie> GetConsultatii()

@@ -13,7 +13,7 @@ namespace ProiectBD.Models
         {
             ID = reader.GetInt32(0);
             Descriere = reader.IsDBNull(1) ? null : reader.GetString(1);
-            Data = reader.GetDateTime(2);
+            Data = reader.GetDateTime(2).Date;
             Observatii = reader.IsDBNull(3) ? null : reader.GetString(3);
             AnimalID = reader.GetInt32(4);
             MedicID = reader.GetInt32(5);
