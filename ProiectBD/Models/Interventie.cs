@@ -15,7 +15,8 @@ namespace ProiectBD.Models
             Nume = reader.GetString(1);
             Descriere = reader.IsDBNull(2) ? null : reader.GetString(2);
             Data = reader.GetDateTime(3);
-            ConsultatieID = reader.GetInt32(4);
+            Pret = reader.IsDBNull(4) ? 0 : reader.GetInt32(4);
+            ConsultatieID = reader.GetInt32(5);
         }
 
         public Interventie()
@@ -29,6 +30,7 @@ namespace ProiectBD.Models
             Nume = interventie.Nume;
             Descriere = interventie.Descriere;
             Data = interventie.Data;
+            Pret = interventie.Pret;
             ConsultatieID = interventie.ConsultatieID;
         }
 
@@ -39,7 +41,9 @@ namespace ProiectBD.Models
         public string Descriere { get; set; }
 
         public DateTime Data { get; set; }
-       
+
+        public int Pret { get; set; }
+
         public int ConsultatieID { get; set; }
     }
 }

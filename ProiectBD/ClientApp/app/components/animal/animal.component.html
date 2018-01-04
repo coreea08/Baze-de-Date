@@ -23,12 +23,12 @@
                 <div class="panel panel-bd lobidrag">
                     <div class="panel-heading">
                         <div class="btn-group" id="buttonlist">
-                            <a  *ngIf="!animal.id" class="btn btn-add " [routerLink]="['/proprietar/details/' + animal.proprietarID]">
+                            <a class="btn btn-add " [routerLink]="['/proprietar/details/' + animal.proprietarID]">
                                 <i class="fa fa-list"></i> Lista Animale
                             </a>
-                            <a *ngIf="animal.id" class="btn btn-add " [routerLink]="['/animal/details/' + animal.id]">
+                            <!--<a *ngIf="animal.id" class="btn btn-add " [routerLink]="['/animal/details/' + animal.id]">
                                 <i class="fa fa-list"></i> Detalii Animal
-                            </a>
+                            </a>-->
                         </div>
                     </div>
                     <div class="panel-body">
@@ -53,10 +53,6 @@
                                 <input type="text" id="numar" name="numar" class="form-control" [(ngModel)]="animal.numarCarnet" required maxlength="25" #numar="ngModel">
                             </div>
 
-                            <div class="form-group has-warning">
-                                <label for="codPasaport"> Cod Pasaport </label>
-                                <input type="text" id="codPasaport" name="codPasaport" class="form-control" [(ngModel)]="animal.codPasaport" required maxlength="25" #codPasaport="ngModel">
-                            </div>
 
                             <div class="form-group has-warning">
                                 <label for="nume"> Nume </label>
@@ -74,7 +70,7 @@
                                 <input type="text" id="categorie" name="categorie" class="form-control" [(ngModel)]="animal.categorie" required maxlength="50" #categorie="ngModel">
                             </div>
 
-                            <div *ngIf="animal.categorie=='Caine' || animal.categorie=='Pisica' " class="form-group has-warning">
+                            <div class="form-group has-warning">
                                 <label for="rasa"> Rasa </label>
                                 <input type="text" id="rasa" name="rasa" class="form-control" [(ngModel)]="animal.rasa" required maxlength="50" #rasa="ngModel">
                             </div>

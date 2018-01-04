@@ -30,7 +30,7 @@ export class AnimalComponent implements OnInit {
         if (this.animal.id)
             this.animalService.getAnimal(this.animal.id).subscribe(x => {
                 this.animal = x;
-
+                console.log(this.animal);
 
             });
 

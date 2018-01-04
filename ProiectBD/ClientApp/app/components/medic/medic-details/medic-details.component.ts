@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 import { ConsultatieService } from "../../../services/consultatie.service";
+import { InterventieService } from "../../../services/interventie.service";
+import { RetetaService } from "../../../services/reteta.service";
+
 
 @Component({
   selector: 'medic-details',
@@ -12,9 +15,11 @@ export class MedicDetailsComponent implements OnInit {
     medic: any = {};
     consultatiiVechi: any;
     consultatiiNoi: any;
+    interventiiVechi: any;
+    interventiiNoi: any;
+    retete: any;
 
-
-    constructor(/*private proprietarService: ProprietarService,*/ private consultatieService: ConsultatieService, private route: ActivatedRoute,
+    constructor(private interventieService: InterventieService, private consultatieService: ConsultatieService, private retetaService: RetetaService, private route: ActivatedRoute,
         private router: Router) {
 
         route.params.subscribe(p => {
@@ -27,10 +32,8 @@ export class MedicDetailsComponent implements OnInit {
 
     ngOnInit() {
         this.populateConsultatii();
-        //this.proprietarService.getProprietar(this.proprietar.id).subscribe(x => {
-        //    this.proprietar = x;
-
-        //});
+        this.populateInterventii();
+        this.populateRetete();
 
     }
 
@@ -49,14 +52,61 @@ export class MedicDetailsComponent implements OnInit {
         });
     }
 
+    populateInterventii() {
+        this.interventieService.getInterventiiNoiMedic(this.medic.id).subscribe(x => {
+            this.interventiiNoi = x;
+
+            console.log(this.medic.id);
+            console.log(x);
+        });
+        this.interventieService.getInterventiiVechiMedic(this.medic.id).subscribe(x => {
+            this.interventiiVechi = x;
+
+            console.log(this.medic.id);
+            console.log(x);
+        });
+    }
+
+    populateRetete() {
+        this.retetaService.getReteteMedic(this.medic.id).subscribe(x => {
+            this.retete = x;
+
+            console.log(this.medic.id);
+            console.log(x);
+        });
+    }
+
     deleteConsultatie(id: number) {
 
         this.consultatieService.deleteConsultatie(id)
             .subscribe(
             () => {
                 this.populateConsultatii();
+                this.populateInterventii();
+                this.populateRetete();
             });
 
     }
+
+    deleteInterventie(id: number) {
+
+        this.interventieService.deleteInterventie(id)
+            .subscribe(
+            () => {
+                this.populateInterventii();
+            });
+
+    }
+
+    deleteReteta(id: number) {
+
+        this.retetaService.deleteRetete(id)
+            .subscribe(
+            () => {
+                this.populateRetete();
+            });
+
+    }
+
 
 }

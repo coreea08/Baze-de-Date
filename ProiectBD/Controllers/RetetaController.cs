@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Data.SqlClient;
 using ProiectBD.Models;
+using ProiectBD.Models.Auxiliar;
 
 namespace ProiectBD.Controllers
 {
@@ -56,6 +57,42 @@ namespace ProiectBD.Controllers
 
                 return retete;
             }
+        }
+
+
+        [HttpGet("/api/reteteMedic/{medicId}")]
+        public List<RetetaConsultatie> GetReteteMedic(int medicId)
+        {
+            this.conn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT R.ID, R.Numar, R.Descriere, R.ConsultatieID, C.Descriere, C.Data " +
+                "FROM Medici M, Consultatii C, Retete R WHERE M.ID = C.MedicID AND C.ID = R.ConsultatieID AND M.ID = @medicId ", conn);
+
+            cmd.Parameters.AddWithValue("@medicId", medicId);
+            cmd.Parameters.AddWithValue("@data", DateTime.Now);
+
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+
+                var retete = new List<RetetaConsultatie>();
+
+                while (reader.Read())
+                {
+
+                    var p = new RetetaConsultatie
+                    {
+                        ID = reader.GetInt32(0),
+                        Numar = reader.GetString(1),
+                        Descriere = reader.GetString(2),
+                        ConsultatieID = reader.GetInt32(3),
+                        DescriereConsultatie = reader.GetString(4),
+                        DataConsultatie = reader.GetDateTime(5).Date
+                    };
+                    retete.Add(p);
+                }
+
+                return retete;
+            }
+
         }
 
         [HttpPost("/api/Reteta")]

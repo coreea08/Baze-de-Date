@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Data.SqlClient;
 using ProiectBD.Models;
+using ProiectBD.Models.Auxiliar;
 
 namespace ProiectBD.Controllers
 {
@@ -81,6 +82,69 @@ namespace ProiectBD.Controllers
             }
         }
 
+        [HttpGet("/api/ConsultatiiAnimal/{id}")]
+        public List<ConsultatiiAnimal> GetConsultatiiAnimal(int id)
+        {
+            this.conn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT C.Descriere, C.Data, C.Observatii ,C.Pret, M.Nume, M.Prenume FROM Animale A, Consultatii C, Medici M " +
+                                            "WHERE A.ID = C.AnimalID AND C.MedicID = M.ID AND A.ID = @Id", conn);
+
+            cmd.Parameters.AddWithValue("@Id", id);
+
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+
+                var consultatii = new List<ConsultatiiAnimal>();
+
+                while (reader.Read())
+                {
+                    var p = new ConsultatiiAnimal
+                    {
+                        Descriere = reader.GetString(0),
+                        Data = reader.GetDateTime(1).Date,
+                        Observatii = reader.GetString(2),
+                        Pret = reader.GetInt32(3),
+                        Nume = reader.GetString(4),
+                        Prenume = reader.GetString(5)
+                    };
+                    consultatii.Add(p);
+                }
+
+                return consultatii;
+            }
+        }
+
+        [HttpGet("/api/InterventiiAnimal/{id}")]
+        public List<ConsultatiiAnimal> GetInterventiiAnimal(int id)
+        {
+            this.conn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT I.Descriere, I.Data, I.Nume ,I.Pret, M.Nume, M.Prenume FROM Animale A, Consultatii C, Medici M, Interventii I " +
+                                            "WHERE A.ID = C.AnimalID AND C.MedicID = M.ID AND I.ConsultatieID = C.ID AND A.ID = @Id", conn);
+            cmd.Parameters.AddWithValue("@Id", id);
+
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+
+                var interventii = new List<ConsultatiiAnimal>();
+
+                while (reader.Read())
+                {
+                    var p = new ConsultatiiAnimal
+                    {
+                        Descriere = reader.GetString(0),
+                        Data = reader.GetDateTime(1).Date,
+                        Observatii = reader.GetString(2), // retine numele interventiei
+                        Pret = reader.IsDBNull(3) ? 0 : reader.GetInt32(3),
+                        Nume = reader.GetString(4),
+                        Prenume = reader.GetString(5)
+                    };
+                    interventii.Add(p);
+                }
+
+                return interventii;
+            }
+        }
+
         [HttpPost("/api/Animal")]
         public IActionResult CreateAnimal([FromBody] Animal animal)
         {
@@ -88,13 +152,12 @@ namespace ProiectBD.Controllers
                 return BadRequest();
             //var animal = new Animal(animale);
          
-            SqlCommand cmd = new SqlCommand("INSERT INTO Animale VALUES (@codMicrocip, @dataNasterii, @serieCarnet, @numarCarnet, @codPasaport, @Nume, @culoare, @rasa, @categorie, @sex, @proprietarID)", conn);
+            SqlCommand cmd = new SqlCommand("INSERT INTO Animale VALUES (@codMicrocip, @dataNasterii, @serieCarnet, @numarCarnet, @Nume, @culoare, @rasa, @categorie, @sex, @proprietarID)", conn);
 
             cmd.Parameters.AddWithValue("@codMicrocip", animal.CodMicrocip);
             cmd.Parameters.AddWithValue("@dataNasterii", animal.DataNasterii);
             cmd.Parameters.AddWithValue("@serieCarnet", animal.SerieCarnet);
             cmd.Parameters.AddWithValue("@numarCarnet", animal.NumarCarnet);
-            cmd.Parameters.AddWithValue("@codPasaport", animal.CodPasaport);
             cmd.Parameters.AddWithValue("@Nume", animal.Nume);
             cmd.Parameters.AddWithValue("@culoare", animal.Culoare);
             cmd.Parameters.AddWithValue("@rasa", animal.Rasa);
@@ -114,13 +177,12 @@ namespace ProiectBD.Controllers
         public IActionResult UpdateAnimal(int id, [FromBody] Animal animal)
         {
             SqlCommand cmd = new SqlCommand("UPDATE Animale SET Nume = @nume, CodMicrocip = @codMicrocip, DataNasterii=@dataNasterii, SerieCarnet = @serieCarnet, NumarCarnet=@numarCarnet," +
-                " CodPasaport = @codPasaport, Culoare = @culoare , Rasa = @rasa, Categorie = @categorie, Sex = @sex, ProprietarID = @proprietarID  WHERE ID = @id ", conn);
+                "  Culoare = @culoare , Rasa = @rasa, Categorie = @categorie, Sex = @sex, ProprietarID = @proprietarID  WHERE ID = @id ", conn);
             cmd.Parameters.AddWithValue("@id", id);
             cmd.Parameters.AddWithValue("@codMicrocip", animal.CodMicrocip);
             cmd.Parameters.AddWithValue("@dataNasterii", animal.DataNasterii);
             cmd.Parameters.AddWithValue("@serieCarnet", animal.SerieCarnet);
             cmd.Parameters.AddWithValue("@numarCarnet", animal.NumarCarnet);
-            cmd.Parameters.AddWithValue("@codPasaport", animal.CodPasaport);
             cmd.Parameters.AddWithValue("@Nume", animal.Nume);
             cmd.Parameters.AddWithValue("@culoare", animal.Culoare);
             cmd.Parameters.AddWithValue("@rasa", animal.Rasa);

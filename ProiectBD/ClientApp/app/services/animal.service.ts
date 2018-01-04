@@ -15,6 +15,14 @@ export class AnimalService {
         return this.http.get('/api/Animale/' + proprietarId).map(res => res.json());
     }
 
+    getConsultatiiAnimal(Id: number) {
+        return this.http.get('/api/ConsultatiiAnimal/' + Id).map(res => res.json());
+    }
+
+    getInterventiiAnimal(Id: number) {
+        return this.http.get('/api/InterventiiAnimal/' + Id).map(res => res.json());
+    }
+
     getAnimale() {
         return this.http.get('/api/Animal').map(res => res.json());
     }

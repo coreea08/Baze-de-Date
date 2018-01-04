@@ -62,15 +62,28 @@
 
                         <br />
                         <button type="button" class="btn btn-info" [routerLink]="['/proprietar/'+ proprietar.id]"><i class="glyphicon glyphicon-edit"></i> Edit</button>
-                        <!--<button type="button" class="btn btn-primary" [routerLink]="['/animal-list/'+ proprietar.id]"><i class="glyphicon glyphicon-list"></i> Animale</button>-->
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
-                        <br />
-                        <br />
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-bd lobidrag">
 
-                        <h2>Animale</h2>
+                    <div class="panel-heading">
+                        <div class="btn-group" id="buttonlist">
+                            <div class="row">
+                                <h3 style="line-height: 30px!important; font-weight:500!important; margin-left:20px"> Animale Proprietar </h3>
+                            </div>
+                        </div>
+                    </div>
 
-                        <button [routerLink]="['/animal/' + proprietar.id]" class="btn btn-info">ADD Animal</button>
+                    <div class="panel-body">
+
+                        <button [routerLink]="['/animal/' + proprietar.id]" class="btn btn-info"><i class="fa fa-plus"></i>ADD Animal</button>
 
                         <br />
                         <br />
@@ -106,11 +119,11 @@
                             </table>
                         </div>
 
-
                     </div>
                 </div>
             </div>
         </div>
+
     </section>
     <!-- /.content -->
 </div>

@@ -41,14 +41,14 @@
 
 
          <header class="main-header">
-            <a [routerLink]="['/home']" class="logo">
+            <a [routerLink]="['/dashboard']" class="logo">
                <!-- Logo -->
                <span class="logo-mini">
                <img src="/assets/dist/img/mini-logo.png" alt="">
                </span>
-               <span class="logo-lg">
+               <!--<span class="logo-lg">
                <img src="/assets/dist/img/logo.png" alt="">
-               </span>
+               </span>-->
             </a>
             <!-- Header Navbar -->
             <nav class="navbar navbar-static-top">
@@ -65,8 +65,8 @@
     <div class="sidebar">
         <!-- sidebar menu -->
         <ul class="sidebar-menu">
-            <li class="active">
-                <a [routerLink]="['/home']">
+            <li class="active" [routerLinkActive]="['link-active']">
+                <a [routerLink]="['/dashboard']">
                     <i class="fa fa-home"></i><span>Dashboard</span>
                     <span class="pull-right-container">
                     </span>
@@ -84,6 +84,14 @@
             <li class="active" [routerLinkActive]="['link-active']">
                 <a [routerLink]="['/proprietari-list']">
                     <i class="fa fa-user-circle-o"></i><span>Proprietari</span> 
+                    <span class="pull-right-container">
+                    </span>
+                </a>
+            </li>
+
+            <li class="active" [routerLinkActive]="['link-active']">
+                <a [routerLink]="['/allAnimals']">
+                    <i class="fa fa-paw"></i><span>Animale</span>
                     <span class="pull-right-container">
                     </span>
                 </a>

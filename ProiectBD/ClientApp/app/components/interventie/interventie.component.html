@@ -1,0 +1,62 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-stethoscope"></i>
+        </div>
+        <div class="header-title">
+            <h1>Adauga Interventie</h1>
+            <small></small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <!-- Form controls -->
+            <div class="col-sm-12">
+                <div class="panel panel-bd lobidrag">
+                    <div class="panel-heading">
+                        <div class="btn-group" id="buttonlist">
+                            <a class="btn btn-add " [routerLink]="['/medic/details/' + consultatie.medicID]">
+                                <i class="fa fa-list"></i> Lista Consultatii
+                            </a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <form class="col-sm-6">
+
+
+                            <div class="form-group has-warning">
+                                <label for="data"> Data </label>
+                                <input type="date" id="data" name="data" class="form-control" [(ngModel)]="interventie.data" required #data="ngModel">
+                            </div>
+
+                            <div class="form-group has-warning">
+                                <label for="nume"> Nume </label>
+                                <input type="text" id="nume" name="nume" class="form-control" [(ngModel)]="interventie.nume" maxlength="50" #nume="ngModel">
+                            </div>
+
+                            <div class="form-group has-warning">
+                                <label for="descriere"> Descriere </label>
+                                <textarea rows="5" id="descriere" name="descriere" class="form-control" [(ngModel)]="interventie.descriere" required maxlength="500" #descriere="ngModel"></textarea>
+                            </div>
+
+                            <div class="form-group has-warning">
+                                <label for="pret"> Pret </label>
+                                <input type="number" id="pret" name="pret" class="form-control" [(ngModel)]="interventie.pret" maxlength="50" #nume="ngModel">
+                            </div>
+
+
+
+
+                            <button type="button" class="btn btn-md btn-success" (click)="submit()">
+                                <i class="fa fa-floppy-o"></i> Save
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>

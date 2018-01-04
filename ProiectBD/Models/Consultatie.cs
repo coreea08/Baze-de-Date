@@ -15,8 +15,9 @@ namespace ProiectBD.Models
             Descriere = reader.IsDBNull(1) ? null : reader.GetString(1);
             Data = reader.GetDateTime(2).Date;
             Observatii = reader.IsDBNull(3) ? null : reader.GetString(3);
-            AnimalID = reader.GetInt32(4);
-            MedicID = reader.GetInt32(5);
+            Pret = reader.IsDBNull(4) ? 0 : reader.GetInt32(4);
+            AnimalID = reader.GetInt32(5);
+            MedicID = reader.GetInt32(6);
         }
 
         public Consultatie()
@@ -30,6 +31,7 @@ namespace ProiectBD.Models
             Descriere = consultatie.Descriere;
             Data = consultatie.Data;
             Observatii = consultatie.Observatii;
+            Pret = consultatie.Pret;
             AnimalID = consultatie.AnimalID;
             MedicID = consultatie.MedicID;
         }
@@ -41,6 +43,8 @@ namespace ProiectBD.Models
         public DateTime Data { get; set; }
 
         public string Observatii { get; set; }
+
+        public int Pret { get; set; }
 
         public int AnimalID { get; set; }
 

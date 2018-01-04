@@ -15,6 +15,10 @@ export class RetetaService {
         return this.http.get('/api/Reteta').map(res => res.json());
     }
 
+    getReteteMedic(medicID: number) {
+        return this.http.get('/api/reteteMedic/' + medicID).map(res => res.json());
+    }
+
     createRetete(reteta: any) {
         return this.http.post('/api/Reteta', reteta);
     }

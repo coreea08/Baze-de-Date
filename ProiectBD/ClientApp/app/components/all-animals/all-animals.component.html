@@ -1,0 +1,64 @@
+
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-paw"></i>
+        </div>
+        <div class="header-title">
+            <h1>Animale Cabinet Veterinar</h1>
+            <small></small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-bd lobidrag">
+
+                    <div class="panel-heading">
+                        <div class="btn-group" id="buttonlist">
+                            <div class="row">
+                                <h3 style="line-height: 30px!important; font-weight:500!important; margin-left:20px">Informatii Animale</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-body">
+
+                        <div class="table-responsive">
+                            <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                <thead>
+                                    <tr class="info">
+                                        <th>Nume Animal</th>
+                                        <th>Cod Microcip</th>
+                                        <th>Categorie</th>
+                                        <th>Rasa</th>
+                                        <th>Nume Proprietar</th>
+                                        <th>CNP</th>
+                                        <th>Telefon</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let x of animalProprietar">
+                                        <td class="borded-td">{{x.numeA}}</td>
+                                        <td class="borded-td">{{x.codMicrocip}}</td>
+                                        <td class="borded-td">{{x.categorie}}</td>
+                                        <td class="borded-td">{{x.rasa}}</td>
+                                        <td class="borded-td">{{x.nume}}</td>
+                                        <td class="borded-td">{{x.cnp}}</td>
+                                        <td class="borded-td">{{x.telefon}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+    <!-- /.content -->
+</div>

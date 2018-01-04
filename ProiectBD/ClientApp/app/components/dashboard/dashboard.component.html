@@ -1,0 +1,173 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-dashboard"></i>
+        </div>
+        <div class="header-title">
+            <h1>Statistici cabinet veterinar</h1>
+            <small></small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="panel panel-bd lobidrag">
+
+                        <div class="panel-heading">
+                            <div class="btn-group" id="buttonlist">
+                                <div class="row">
+                                    <h3 style="line-height: 30px!important; font-weight:500!important; margin-left:20px">Consultatii efectuate de medici </h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel-body">
+
+                            <div class="table-responsive">
+                                <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                    <thead>
+                                        <tr class="info">
+                                            <th>Nume</th>
+                                            <th>Prenume</th>
+                                            <th>Telefon</th>
+                                            <th>Numar Consultatii</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let x of medicNrConsult">
+                                            <td class="borded-td">{{x.nume}}</td>
+                                            <td class="borded-td">{{x.prenume}}</td>
+                                            <td class="borded-td">{{x.telefon}}</td>
+                                            <td class="borded-td">{{x.numarConsultatii}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-bd lobidrag">
+
+                    <div class="panel-heading">
+                        <div class="btn-group" id="buttonlist">
+                            <div class="row">
+                                <h3 style="line-height: 30px!important; font-weight:500!important; margin-left:20px">Castig Consultatii </h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-body">
+
+                        <div class="table-responsive">
+                            <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                <thead>
+                                    <tr class="info">
+                                        <th>Nume</th>
+                                        <th>Prenume</th>
+                                        <th>Castig</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let x of castigConsultatii">
+                                        <td class="borded-td">{{x.nume}}</td>
+                                        <td class="borded-td">{{x.prenume}}</td>
+                                        <td class="borded-td">{{x.castigTotal}}</td>
+                                        
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-bd lobidrag">
+
+                    <div class="panel-heading">
+                        <div class="btn-group" id="buttonlist">
+                            <div class="row">
+                                <h3 style="line-height: 30px!important; font-weight:500!important; margin-left:20px">Medici ce au emis cel putin doua retete </h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-body">
+
+                        <div class="table-responsive">
+                            <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                <thead>
+                                    <tr class="info">
+                                        <th>Nume</th>
+                                        <th>Prenume</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let x of reteteMedic">
+                                        <td class="borded-td">{{x.nume}}</td>
+                                        <td class="borded-td">{{x.prenume}}</td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-bd lobidrag">
+
+                    <div class="panel-heading">
+                        <div class="btn-group" id="buttonlist">
+                            <div class="row">
+                                <h3 style="line-height: 30px!important; font-weight:500!important; margin-left:20px">Statistici interventii efectuate de medici </h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-body">
+
+                        <div class="table-responsive">
+                            <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                <thead>
+                                    <tr class="info">
+                                        <th>Nume</th>
+                                        <th>Prenume</th>
+                                        <th>Castig Total</th>
+                                        <th>Numar Interventii</th>
+                                        <th>Medie Castig</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let x of AVGinterventiiMedic">
+                                        <td class="borded-td">{{x.nume}}</td>
+                                        <td class="borded-td">{{x.prenume}}</td>
+                                        <td class="borded-td">{{x.castigTotal}}</td>
+                                        <td class="borded-td">{{x.numarInterventii}}</td>
+                                        <td class="borded-td">{{x.medieCastig}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+</section>
+    <!-- /.content -->
+</div>

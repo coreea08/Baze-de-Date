@@ -15,6 +15,14 @@ export class InterventieService {
         return this.http.get('/api/Interventie').map(res => res.json());
     }
 
+    getInterventiiVechiMedic(medicId: number) {
+        return this.http.get('/api/InterventieMedicVeche/' + medicId).map(res => res.json());
+    }
+
+    getInterventiiNoiMedic(medicId: number) {
+        return this.http.get('/api/InterventieMedicNoua/' + medicId).map(res => res.json());
+    }
+
     createInterventie(interventie: any) {
         return this.http.post('/api/Interventie', interventie);
     }

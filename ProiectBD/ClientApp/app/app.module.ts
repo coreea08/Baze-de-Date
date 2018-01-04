@@ -25,6 +25,11 @@ import { MedicComponent } from './components/medic/medic.component';
 import { MedicListComponent } from './components/medic/medic-list/medic-list.component';
 import { MedicDetailsComponent } from './components/medic/medic-details/medic-details.component';
 import { ConsultatieComponent } from './components/consultatie/consultatie.component';
+import { InterventieComponent } from './components/interventie/interventie.component';
+import { RetetaComponent } from './components/reteta/reteta.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { DashboardService } from "./services/dashboard.service";
+import { AllAnimalsComponent } from './components/all-animals/all-animals.component';
 
 @NgModule({
     declarations: [
@@ -42,15 +47,21 @@ import { ConsultatieComponent } from './components/consultatie/consultatie.compo
         MedicComponent,
         MedicListComponent,
         MedicDetailsComponent,
-        ConsultatieComponent
+        ConsultatieComponent,
+        InterventieComponent,
+        RetetaComponent,
+        DashboardComponent,
+        AllAnimalsComponent
     ],
     imports: [
         CommonModule,
         HttpModule,
         FormsModule,
         RouterModule.forRoot([
-            { path: '', redirectTo: 'home', pathMatch: 'full' },
+            { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
+            { path: 'dashboard', component: DashboardComponent },
+            { path: 'allAnimals', component: AllAnimalsComponent },
 
             { path: 'proprietar', component: ProprietarComponent },
             { path: 'proprietar/:id', component: ProprietarComponent },
@@ -70,6 +81,13 @@ import { ConsultatieComponent } from './components/consultatie/consultatie.compo
             { path: 'consultatie/:medicID', component: ConsultatieComponent },
             { path: 'consultatie/edit/:id', component: ConsultatieComponent },
 
+            { path: 'interventie/:consultatieID', component: InterventieComponent },
+            { path: 'interventie/edit/:id', component: InterventieComponent },
+
+            { path: 'reteta/:consultatieID', component: RetetaComponent },
+            { path: 'reteta/edit/:id', component: RetetaComponent },
+
+
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
             { path: '**', redirectTo: 'home' }
@@ -82,7 +100,8 @@ import { ConsultatieComponent } from './components/consultatie/consultatie.compo
         AnimalService,
         ConsultatieService,
         InterventieService,
-        RetetaService
+        RetetaService,
+        DashboardService
     ]
     
 })

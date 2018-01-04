@@ -10,6 +10,8 @@ import { ActivatedRoute, Router } from "@angular/router";
 export class AnimalDetailsComponent implements OnInit {
 
     animal: any = {};
+    consultatii: any;
+    interventii: any;
 
     constructor(private animalService: AnimalService, private route: ActivatedRoute,
         private router: Router) {
@@ -25,6 +27,14 @@ export class AnimalDetailsComponent implements OnInit {
     ngOnInit() {
         this.animalService.getAnimal(this.animal.id).subscribe(x => {
             this.animal = x;
+
+            this.animalService.getConsultatiiAnimal(this.animal.id).subscribe(x => {
+                this.consultatii = x;
+            });
+
+            this.animalService.getInterventiiAnimal(this.animal.id).subscribe(x => {
+                this.interventii = x;
+            });
 
         });
 

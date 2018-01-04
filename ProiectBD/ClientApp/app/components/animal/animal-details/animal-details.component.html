@@ -34,7 +34,6 @@
                                     <th>Data Nasterii</th>
                                     <th>Serie Carnet</th>
                                     <th>Numar Carnet</th>
-                                    <th>Cod Pasaport</th>
                                     <th>Nume</th>
                                     <th>Culoare</th>
                                     <th>Categorie</th>
@@ -51,8 +50,6 @@
                                     <td *ngIf="!animal.serieCarnet"><br /> </td>
                                     <td  *ngIf="animal.numarCarnet"> {{animal.numarCarnet}}</td>
                                     <td *ngIf="!animal.numarCarnet"><br /> </td>
-                                    <td *ngIf="animal.codPasaport"> {{animal.codPasaport}}</td>
-                                    <td *ngIf="!animal.codPasaport"><br /> </td>
                                     <td> {{animal.nume}}</td>
                                     <td> {{animal.culoare}}</td>
                                     <td> {{animal.categorie}}</td>
@@ -65,53 +62,100 @@
                         <br />
                         <button type="button" class="btn btn-info" [routerLink]="['/animal/edit/'+ animal.id]"><i class="glyphicon glyphicon-edit"></i> Edit</button>
 
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                        <br />
-                        <br />
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-bd lobidrag">
 
-                        <!--<h2>Istoric Consultatii</h2>
+                    <div class="panel-heading">
+                        <div class="btn-group" id="buttonlist">
+                            <div class="row">
+                                <h3 style="line-height: 30px!important; font-weight:500!important; margin-left:20px"> Istoric Consultatii </h3>
+                            </div>
+                        </div>
+                    </div>
 
-                        <button [routerLink]="['/animal/' + proprietar.id]" class="btn btn-info">ADD Animal</button>
-
-                        <br />
-                        <br />
+                    <div class="panel-body">
                         <div class="table-responsive">
                             <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
                                 <thead>
                                     <tr class="info">
-                                        <th>Nume</th>
-                                        <th>Categorie</th>
-                                        <th>Culoare</th>
-                                        <th>Data Nasterii</th>
-                                        <th></th>
+                                        <th>Descriere</th>
+                                        <th>Data</th>
+                                        <th>Observatii</th>
+                                        <th>Pret</th>
+                                        <th>Nume Medic</th>
+                                        <th>Prenume Medic</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let x of animale">
-                                        <td class="borded-td">
-                                            <a [routerLink]="['/animal/details/' + x.id ]">
-                                                <div style="height:100%;width:100%">
-                                                    {{x.nume}}
-                                                </div>
-                                            </a>
-                                        </td>
-                                        <td class="borded-td">{{x.categorie}}</td>
-                                        <td class="borded-td">{{x.culoare}}</td>
-                                        <td class="borded-td">{{x.dataNasterii | date:'dd/MM/yyyy'}}</td>
-                                        <td style="text-align:center">
-                                            <button type="button" class="btn btn-info btn-xs" [routerLink]="['/animal/edit/' + x.id]"><i class="glyphicon glyphicon-edit"></i></button>
-                                            <button type="button" class="btn btn-danger btn-xs" (click)="deleteAnimal(x.id)"><span class='glyphicon glyphicon-remove '></span></button>
-                                        </td>
+                                    <tr *ngFor="let x of consultatii">
+                                        <td class="borded-td">{{x.descriere}}</td>
+                                        <td class="borded-td">{{x.data | date:'dd/MM/yyyy'}}</td>
+                                        <td class="borded-td">{{x.observatii}}</td>
+                                        <td class="borded-td">{{x.pret}}</td>
+                                        <td class="borded-td">{{x.nume}}</td>
+                                        <td class="borded-td">{{x.prenume}}</td>
                                     </tr>
                                 </tbody>
                             </table>
-                        </div>-->
+                        </div>
 
 
                     </div>
                 </div>
             </div>
         </div>
+
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-bd lobidrag">
+
+                    <div class="panel-heading">
+                        <div class="btn-group" id="buttonlist">
+                            <div class="row">
+                                <h3 style="line-height: 30px!important; font-weight:500!important; margin-left:20px"> Istoric Interventii </h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                <thead>
+                                    <tr class="info">
+                                        <th>Nume</th>
+                                        <th>Descriere</th>
+                                        <th>Data</th>
+                                        <th>Pret</th>
+                                        <th>Nume Medic</th>
+                                        <th>Prenume Medic</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let x of interventii">
+                                        <td class="borded-td">{{x.observatii}}</td>
+                                        <td class="borded-td">{{x.descriere}}</td>
+                                        <td class="borded-td">{{x.data | date:'dd/MM/yyyy'}}</td>
+                                        <td class="borded-td">{{x.pret}}</td>
+                                        <td class="borded-td">{{x.nume}}</td>
+                                        <td class="borded-td">{{x.prenume}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     </section>
     <!-- /.content -->
 </div>

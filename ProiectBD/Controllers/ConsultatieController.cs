@@ -63,7 +63,7 @@ namespace ProiectBD.Controllers
         public List<Consultatie> GetConsultatiiNoiMedic(int medicId)
         {
             this.conn.Open();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Consultatii WHERE MedicID = @medicId AND Data > @data", conn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Consultatii WHERE MedicID = @medicId AND Data >= @data ORDER BY Data", conn);
             cmd.Parameters.AddWithValue("@medicId", medicId);
             cmd.Parameters.AddWithValue("@data", DateTime.Now);
 
@@ -87,7 +87,7 @@ namespace ProiectBD.Controllers
         public List<Consultatie> GetConsultatiiVechiMedic(int medicId)
         {
             this.conn.Open();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Consultatii WHERE MedicID = @medicId AND Data < @data", conn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Consultatii WHERE MedicID = @medicId AND Data < @data ORDER BY Data DESC", conn);
             cmd.Parameters.AddWithValue("@medicId", medicId);
             cmd.Parameters.AddWithValue("@data", DateTime.Now);
 
@@ -163,11 +163,12 @@ namespace ProiectBD.Controllers
             if (!ModelState.IsValid)
                 return BadRequest();
 
-            SqlCommand cmd = new SqlCommand("INSERT INTO Consultatii VALUES (@descriere, @data, @observatii, @animalID, @medicID)", conn);
+            SqlCommand cmd = new SqlCommand("INSERT INTO Consultatii VALUES (@descriere, @data, @observatii, @pret, @animalID, @medicID)", conn);
 
             cmd.Parameters.AddWithValue("@descriere", consult.Descriere);
             cmd.Parameters.AddWithValue("@data", consult.Data);
             cmd.Parameters.AddWithValue("@observatii", consult.Observatii);
+            cmd.Parameters.AddWithValue("@pret", consult.Pret);
             cmd.Parameters.AddWithValue("@animalID", consult.AnimalID);
             cmd.Parameters.AddWithValue("@medicID", consult.MedicID);
 
@@ -182,11 +183,12 @@ namespace ProiectBD.Controllers
         [HttpPut("/api/Consultatie/{id}")]
         public IActionResult UpdateConsultatie(int id, [FromBody] Consultatie consultatie)
         {
-            SqlCommand cmd = new SqlCommand("UPDATE Consultatii SET Descriere = @descriere, Data = @data, Observatii=@observatii, AnimalID=@animalID, MedicID = @medicID  WHERE ID = @id ", conn);
+            SqlCommand cmd = new SqlCommand("UPDATE Consultatii SET Descriere = @descriere, Data = @data, Observatii=@observatii, Pret = @pret, AnimalID=@animalID, MedicID = @medicID  WHERE ID = @id ", conn);
             cmd.Parameters.AddWithValue("@id", id);
             cmd.Parameters.AddWithValue("@descriere", consultatie.Descriere);
             cmd.Parameters.AddWithValue("@data", consultatie.Data);
             cmd.Parameters.AddWithValue("@observatii", consultatie.Observatii);
+            cmd.Parameters.AddWithValue("@pret", consultatie.Pret);
             cmd.Parameters.AddWithValue("@animalID", consultatie.AnimalID);
             cmd.Parameters.AddWithValue("@medicID", consultatie.MedicID);
 

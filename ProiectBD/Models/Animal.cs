@@ -16,13 +16,12 @@ namespace ProiectBD.Models
             DataNasterii = reader.GetDateTime(2);
             SerieCarnet = reader.IsDBNull(3) ? null : reader.GetString(3);
             NumarCarnet = reader.IsDBNull(4) ? null : reader.GetString(4);
-            CodPasaport = reader.IsDBNull(5) ? null : reader.GetString(5);
-            Nume = reader.GetString(6);
-            Culoare = reader.GetString(7);
-            Rasa = reader.IsDBNull(8) ? null : reader.GetString(8);
-            Categorie = reader.GetString(9);
-            Sex = reader.GetString(10);
-            ProprietarID = reader.GetInt32(11);
+            Nume = reader.GetString(5);
+            Culoare = reader.GetString(6);
+            Rasa = reader.IsDBNull(7) ? null : reader.GetString(7);
+            Categorie = reader.GetString(8);
+            Sex = reader.GetString(9);
+            ProprietarID = reader.GetInt32(10);
         }
 
         public Animal()
@@ -31,7 +30,6 @@ namespace ProiectBD.Models
             DataNasterii = DateTime.Now;
             SerieCarnet = "";
             NumarCarnet = "";
-            CodPasaport = "";
             Nume = "";
             Culoare = "";
             Rasa = "";
@@ -44,7 +42,6 @@ namespace ProiectBD.Models
             DataNasterii = animal.DataNasterii;
             SerieCarnet = animal.SerieCarnet;
             NumarCarnet = animal.NumarCarnet;
-            CodPasaport = animal.CodPasaport;
             Nume = animal.Nume;
             Culoare = animal.Culoare;
             Rasa = animal.Rasa;
@@ -61,8 +58,6 @@ namespace ProiectBD.Models
         public string SerieCarnet { get; set; }
 
         public string NumarCarnet { get; set; }
-
-        public string CodPasaport { get; set; }
 
         public string Nume { get; set; }
 

@@ -54,8 +54,7 @@ export class ConsultatieComponent implements OnInit {
     }
 
     submit() {
-        let t = this.animale.find(f => f.nume == this.query.nume);
-        this.consultatie.animalID = t.id;
+
         if (this.consultatie.id) {
             this.consultatieService.updateConsultatie(this.consultatie.id, this.consultatie)
                 .subscribe(
@@ -73,6 +72,8 @@ export class ConsultatieComponent implements OnInit {
 
         }
         else {
+            let t = this.animale.find(f => f.nume == this.query.nume);
+            this.consultatie.animalID = t.id;
             this.consultatieService.createConsultatie(this.consultatie)
                 .subscribe(
                 () => {
